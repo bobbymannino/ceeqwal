@@ -1,11 +1,67 @@
-object Form1: TForm1
+object frmMain: TfrmMain
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 480
-  ClientWidth = 640
+  Caption = 'Ceeqwal'
+  ClientHeight = 184
+  ClientWidth = 202
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 0
+  object inpConnectionString: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 1
+    Position.X = 8.000000000000000000
+    Position.Y = 33.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object TLabel
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Connection String'
+    TabOrder = 2
+  end
+  object btnTestConnection: TButton
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 63.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Text = 'Test Connection'
+    TextSettings.Trimming = None
+    OnClick = btnTestConnectionClick
+  end
+  object btnConnect: TButton
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 93.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'Connect'
+    TextSettings.Trimming = None
+    OnClick = btnConnectClick
+  end
+  object btnClose: TButton
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 123.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'Close'
+    TextSettings.Trimming = None
+    OnClick = btnCloseClick
+  end
 end
