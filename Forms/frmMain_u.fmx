@@ -2,40 +2,41 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'Ceeqwal'
-  ClientHeight = 184
+  ClientHeight = 299
   ClientWidth = 202
+  Position = ScreenCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   DesignerMasterStyle = 0
-  object inpConnectionString: TEdit
+  object inpServer: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 1
+    TabOrder = 5
     Position.X = 8.000000000000000000
     Position.Y = 33.000000000000000000
     Size.Width = 186.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
   end
-  object TLabel
+  object lblServer: TLabel
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
     Size.Width = 186.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Connection String'
-    TabOrder = 2
+    Text = 'Server'
+    TabOrder = 6
   end
   object btnTestConnection: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 63.000000000000000000
+    Position.Y = 174.000000000000000000
     Size.Width = 186.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 4
+    TabOrder = 8
     Text = 'Test Connection'
     TextSettings.Trimming = None
     OnClick = btnTestConnectionClick
@@ -43,11 +44,11 @@ object frmMain: TfrmMain
   object btnConnect: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 93.000000000000000000
+    Position.Y = 204.000000000000000000
     Size.Width = 186.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 3
+    TabOrder = 7
     Text = 'Connect'
     TextSettings.Trimming = None
     OnClick = btnConnectClick
@@ -55,13 +56,53 @@ object frmMain: TfrmMain
   object btnClose: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 123.000000000000000000
+    Position.Y = 234.000000000000000000
     Size.Width = 186.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 5
+    TabOrder = 9
     Text = 'Close'
     TextSettings.Trimming = None
     OnClick = btnCloseClick
+  end
+  object inpUser: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 3
+    Position.X = 8.000000000000000000
+    Position.Y = 89.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblUser: TLabel
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 64.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'User'
+    TabOrder = 4
+  end
+  object inpPwd: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 1
+    Position.X = 8.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblPwd: TLabel
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 119.000000000000000000
+    Size.Width = 186.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Password'
+    TabOrder = 2
   end
 end
