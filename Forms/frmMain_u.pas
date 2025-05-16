@@ -25,10 +25,13 @@ type
     lblPwd: TLabel;
     inpDatabase: TEdit;
     lblDatabase: TLabel;
+    btnUpload: TButton;
+    fileInpCredentials: TOpenDialog;
     procedure btnTestConnectionClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnConnectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnUploadClick(Sender: TObject);
   private
     function CheckConnection: boolean;
   public
@@ -72,6 +75,12 @@ begin
     ShowMessage('Succeeded')
   else
     ShowMessage('Failed to connect');
+end;
+
+procedure TfrmMain.btnUploadClick(Sender: TObject);
+begin
+  fileInpCredentials.InitialDir := GetCurrentDir;
+  fileInpCredentials.Execute;
 end;
 
 function TfrmMain.CheckConnection: boolean;

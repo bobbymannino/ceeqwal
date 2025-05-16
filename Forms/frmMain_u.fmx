@@ -33,7 +33,7 @@ object frmMain: TfrmMain
   object btnTestConnection: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 229.000000000000000000
+    Position.Y = 259.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -45,7 +45,7 @@ object frmMain: TfrmMain
   object btnConnect: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 259.000000000000000000
+    Position.Y = 289.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -57,11 +57,11 @@ object frmMain: TfrmMain
   object btnClose: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 289.000000000000000000
+    Position.Y = 319.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 10
+    TabOrder = 11
     Text = 'Close'
     TextSettings.Trimming = None
     OnClick = btnCloseClick
@@ -127,5 +127,23 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     Text = 'Database'
     TabOrder = 6
+  end
+  object btnUpload: TButton
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 229.000000000000000000
+    Size.Width = 233.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    Text = 'Upload Credentials'
+    TextSettings.Trimming = None
+    OnClick = btnUploadClick
+  end
+  object fileInpCredentials: TOpenDialog
+    Filter = 'Text Files|*.txt'
+    Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
+    Left = 72
+    Top = 384
   end
 end
