@@ -69,6 +69,7 @@ object frmMain: TfrmMain
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 3
+    Text = 'sa'
     Position.X = 8.000000000000000000
     Position.Y = 89.000000000000000000
     Size.Width = 233.000000000000000000
