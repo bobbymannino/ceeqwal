@@ -12,7 +12,7 @@ object frmMain: TfrmMain
   object inpServer: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 5
+    TabOrder = 2
     Position.X = 8.000000000000000000
     Position.Y = 33.000000000000000000
     Size.Width = 186.000000000000000000
@@ -27,7 +27,7 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Server'
-    TabOrder = 6
+    TabOrder = 1
   end
   object btnTestConnection: TButton
     Anchors = [akLeft, akTop, akRight]
@@ -36,7 +36,7 @@ object frmMain: TfrmMain
     Size.Width = 186.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 8
+    TabOrder = 7
     Text = 'Test Connection'
     TextSettings.Trimming = None
     OnClick = btnTestConnectionClick
@@ -48,7 +48,7 @@ object frmMain: TfrmMain
     Size.Width = 186.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 7
+    TabOrder = 8
     Text = 'Connect'
     TextSettings.Trimming = None
     OnClick = btnConnectClick
@@ -68,7 +68,7 @@ object frmMain: TfrmMain
   object inpUser: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 3
+    TabOrder = 4
     Position.X = 8.000000000000000000
     Position.Y = 89.000000000000000000
     Size.Width = 186.000000000000000000
@@ -83,12 +83,12 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'User'
-    TabOrder = 4
+    TabOrder = 3
   end
   object inpPwd: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 1
+    TabOrder = 6
     Position.X = 8.000000000000000000
     Position.Y = 144.000000000000000000
     Size.Width = 186.000000000000000000
@@ -103,6 +103,6 @@ object frmMain: TfrmMain
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Text = 'Password'
-    TabOrder = 2
+    TabOrder = 5
   end
 end
