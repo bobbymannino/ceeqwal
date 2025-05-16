@@ -30,7 +30,7 @@ type
     procedure btnConnectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+    function CheckConnection: boolean;
   public
     { Public declarations }
   end;
@@ -51,6 +51,13 @@ procedure TfrmMain.btnConnectClick(Sender: TObject);
 var
   frm: TForm;
 begin
+  if not CheckConnection then
+  begin
+    ShowMessage('Failed to connect');
+
+    Exit;
+  end;
+
   frm := TfrmOptions.Create(nil);
   Application.MainForm := frm;
   close;
@@ -61,6 +68,18 @@ procedure TfrmMain.btnTestConnectionClick(Sender: TObject);
 var
   conn: TFDConnection;
 begin
+  if CheckConnection then
+    ShowMessage('Succeeded')
+  else
+    ShowMessage('Failed to connect');
+end;
+
+function TfrmMain.CheckConnection: boolean;
+var
+  conn: TFDConnection;
+begin
+  Result := False;
+
   conn := TFDConnection.Create(nil);
   try
     conn.Params.Clear;
@@ -70,17 +89,15 @@ begin
     conn.Params.Values['User_Name'] := inpUser.Text;
     conn.Params.Values['Password'] := inpPwd.Text;
 
-    try
-      conn.Connected := True;
-      ShowMessage('1'); // Success
-    except
-      on E: Exception do
-      begin
-        ShowMessage(E.Message); // Failure
-      end;
-    end;
+{$IFDEF DEBUG}
+    conn.Params.Values['OSAuthent'] := 'Yes';
+{$ENDIF}
+    conn.Connected := True;
+
   finally
     conn.Free;
+
+    Result := True;
   end;
 end;
 
