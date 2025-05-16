@@ -28,6 +28,7 @@ type
     procedure btnTestConnectionClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnConnectClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,29 +59,36 @@ end;
 
 procedure TfrmMain.btnTestConnectionClick(Sender: TObject);
 var
-  Connection: TFDConnection;
+  conn: TFDConnection;
 begin
-  Connection := TFDConnection.Create(nil);
+  conn := TFDConnection.Create(nil);
   try
-    Connection.Params.Clear;
-    Connection.Params.DriverID := 'MSSQL';
-    Connection.Params.Values['Server'] := inpServer.Text;
-    Connection.Params.Values['Database'] := inpDatabase.Text;
-    Connection.Params.Values['User_Name'] := inpUser.Text;
-    Connection.Params.Values['Password'] := inpPwd.Text;
+    conn.Params.Clear;
+    conn.Params.DriverID := 'MSSQL';
+    conn.Params.Values['Server'] := inpServer.Text;
+    conn.Params.Values['Database'] := inpDatabase.Text;
+    conn.Params.Values['User_Name'] := inpUser.Text;
+    conn.Params.Values['Password'] := inpPwd.Text;
 
     try
-      Connection.Connected := True;
+      conn.Connected := True;
       ShowMessage('1'); // Success
     except
       on E: Exception do
       begin
-        ShowMessage('0'); // Failure
+        ShowMessage(E.Message); // Failure
       end;
     end;
   finally
-    Connection.Free;
+    conn.Free;
   end;
+end;
+
+procedure TfrmMain.FormCreate(Sender: TObject);
+begin
+{$IFDEF DEBUG}
+  inpServer.Text := 'DESKTOP-5EFKG00\SQLEXPRESS';
+{$ENDIF}
 end;
 
 end.
