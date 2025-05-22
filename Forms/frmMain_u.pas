@@ -81,7 +81,7 @@ end;
 procedure TfrmMain.btnUploadClick(Sender: TObject);
 var
   fileContent: TStringList;
-  val : string;
+  val: string;
 begin
   fileInpCredentials.InitialDir := GetCurrentDir;
 
@@ -153,6 +153,8 @@ begin
 {$IFDEF DEBUG}
   inpServer.Text := 'DESKTOP-5EFKG00\SQLEXPRESS';
 {$ENDIF}
+
+  btnConnectClick(nil);
 end;
 
 function TfrmMain.ParseCredentials(const aField, aTxt: string): string;
