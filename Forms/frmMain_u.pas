@@ -10,7 +10,8 @@ uses
   FireDAC.Phys.MSSQL, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Comp.Client,
-  frmOptions_u;
+  frmOptions_u,
+  dmDb_u;
 
 type
   TfrmMain = class(TForm)
@@ -121,30 +122,27 @@ begin
 end;
 
 function TfrmMain.CheckConnection: boolean;
-var
-  conn: TFDConnection;
 begin
   Result := False;
-
-  conn := TFDConnection.Create(nil);
-  try
-    conn.Params.Clear;
-    conn.Params.DriverID := 'MSSQL';
-    conn.Params.Values['Server'] := inpServer.Text;
-    conn.Params.Values['Database'] := inpDatabase.Text;
-    conn.Params.Values['User_Name'] := inpUser.Text;
-    conn.Params.Values['Password'] := inpPwd.Text;
+  with dmDb do
+  begin
+    try
+      conn.Params.Clear;
+      conn.Params.DriverID := 'MSSQL';
+      conn.Params.Values['Server'] := inpServer.Text;
+      conn.Params.Values['Database'] := inpDatabase.Text;
+      conn.Params.Values['User_Name'] := inpUser.Text;
+      conn.Params.Values['Password'] := inpPwd.Text;
 
 {$IFDEF DEBUG}
-    { TODO : Move this to checkbox on form }
-    conn.Params.Values['OSAuthent'] := 'Yes';
+      { TODO : Move this to checkbox on form }
+      conn.Params.Values['OSAuthent'] := 'Yes';
 {$ENDIF}
-    conn.Connected := True;
+      conn.Connected := True;
 
-  finally
-    conn.Free;
-
-    Result := True;
+      Result := True;
+    finally
+    end;
   end;
 end;
 
@@ -152,9 +150,9 @@ procedure TfrmMain.FormCreate(Sender: TObject);
 begin
 {$IFDEF DEBUG}
   inpServer.Text := 'DESKTOP-5EFKG00\SQLEXPRESS';
-{$ENDIF}
 
-  btnConnectClick(nil);
+   btnConnectClick(nil);
+{$ENDIF}
 end;
 
 function TfrmMain.ParseCredentials(const aField, aTxt: string): string;

@@ -156,6 +156,11 @@
             <Form>frmOptions</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="DataModules\dmDb_u.pas">
+            <Form>dmDb</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
