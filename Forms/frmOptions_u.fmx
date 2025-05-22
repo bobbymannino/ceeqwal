@@ -2,10 +2,48 @@ object frmOptions: TfrmOptions
   Left = 0
   Top = 0
   Caption = 'Ceeqwal'
-  ClientHeight = 480
-  ClientWidth = 640
+  ClientHeight = 450
+  ClientWidth = 576
+  Position = DesktopCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
+  object inpQry: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 560.000000000000000000
+    Size.Height = 369.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 560.000000000000000000
+    Viewport.Height = 369.000000000000000000
+  end
+  object btnRunQry: TButton
+    Anchors = [akTop, akRight]
+    Position.X = 440.000000000000000000
+    Position.Y = 385.000000000000000000
+    Size.Width = 128.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    Text = 'Run Query'
+    TextSettings.Trimming = None
+    OnClick = btnRunQryClick
+  end
+  object btnClose: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 385.000000000000000000
+    Size.Width = 128.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Close'
+    TextSettings.Trimming = None
+    OnClick = btnCloseClick
+  end
 end
