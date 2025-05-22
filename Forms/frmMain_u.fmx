@@ -141,8 +141,9 @@ object frmMain: TfrmMain
     OnClick = btnUploadClick
   end
   object fileInpCredentials: TOpenDialog
-    Filter = 'Text Files|*.txt'
+    Filter = 'Text Files (*.txt)|*.txt|All Files (*.*)|*.*'
     Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
+    Title = 'Select a Text File'
     Left = 72
     Top = 384
   end

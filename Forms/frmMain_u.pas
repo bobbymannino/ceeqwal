@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
+  System.Variants, System.RegularExpressions,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Edit,
   FireDAC.Phys.MSSQL, FireDAC.Stan.Intf, FireDAC.Stan.Option,
@@ -34,6 +34,7 @@ type
     procedure btnUploadClick(Sender: TObject);
   private
     function CheckConnection: boolean;
+    function ParseCredentials(const aField, aTxt: string): string;
   public
     { Public declarations }
   end;
@@ -78,9 +79,45 @@ begin
 end;
 
 procedure TfrmMain.btnUploadClick(Sender: TObject);
+var
+  fileContent: TStringList;
+  val : string;
 begin
   fileInpCredentials.InitialDir := GetCurrentDir;
-  fileInpCredentials.Execute;
+
+  if not fileInpCredentials.Execute then
+    Exit;
+
+  fileContent := TStringList.Create;
+  try
+    try
+      fileContent.LoadFromFile(fileInpCredentials.FileName);
+
+      val := ParseCredentials('Server', fileContent.Text);
+      if val <> EmptyStr then
+        inpServer.Text := val;
+
+      val := ParseCredentials('Database', fileContent.Text);
+      if val <> EmptyStr then
+        inpDatabase.Text := val;
+
+      val := ParseCredentials('User', fileContent.Text);
+      if val <> EmptyStr then
+        inpUser.Text := val;
+
+      val := ParseCredentials('Password', fileContent.Text);
+      if val <> EmptyStr then
+        inpPwd.Text := val;
+
+    except
+      on e: Exception do
+      begin
+        ShowMessage('Failed');
+      end;
+    end;
+  finally
+    fileContent.Free;
+  end;
 end;
 
 function TfrmMain.CheckConnection: boolean;
@@ -99,6 +136,7 @@ begin
     conn.Params.Values['Password'] := inpPwd.Text;
 
 {$IFDEF DEBUG}
+    { TODO : Move this to checkbox on form }
     conn.Params.Values['OSAuthent'] := 'Yes';
 {$ENDIF}
     conn.Connected := True;
@@ -115,6 +153,21 @@ begin
 {$IFDEF DEBUG}
   inpServer.Text := 'DESKTOP-5EFKG00\SQLEXPRESS';
 {$ENDIF}
+end;
+
+function TfrmMain.ParseCredentials(const aField, aTxt: string): string;
+var
+  ptn: string;
+  mtch: TMatch;
+begin
+  Result := '';
+
+  ptn := Format('^%s=(\w+)\r?\n?$', [aField]);
+
+  mtch := TRegEx.Match(aTxt, ptn, [TRegExOption.roMultiLine]);
+
+  if mtch.Success then
+    Result := mtch.Groups[1].Value;
 end;
 
 end.
