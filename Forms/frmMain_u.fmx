@@ -33,7 +33,7 @@ object frmMain: TfrmMain
   object btnTestConnection: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 259.000000000000000000
+    Position.Y = 286.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -45,7 +45,7 @@ object frmMain: TfrmMain
   object btnConnect: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 289.000000000000000000
+    Position.Y = 316.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -57,7 +57,7 @@ object frmMain: TfrmMain
   object btnClose: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 319.000000000000000000
+    Position.Y = 346.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -131,7 +131,7 @@ object frmMain: TfrmMain
   object btnUpload: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 229.000000000000000000
+    Position.Y = 256.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
@@ -146,5 +146,15 @@ object frmMain: TfrmMain
     Title = 'Select a Text File'
     Left = 72
     Top = 384
+  end
+  object chkboxOsAuth: TCheckBox
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 229.000000000000000000
+    Size.Width = 233.000000000000000000
+    Size.Height = 19.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    Text = 'OS Auth'
   end
 end

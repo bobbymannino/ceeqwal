@@ -28,6 +28,7 @@ type
     lblDatabase: TLabel;
     btnUpload: TButton;
     fileInpCredentials: TOpenDialog;
+    chkboxOsAuth: TCheckBox;
     procedure btnTestConnectionClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnConnectClick(Sender: TObject);
@@ -124,6 +125,7 @@ end;
 function TfrmMain.CheckConnection: boolean;
 begin
   Result := False;
+
   with dmDb do
   begin
     try
@@ -133,11 +135,8 @@ begin
       conn.Params.Values['Database'] := inpDatabase.Text;
       conn.Params.Values['User_Name'] := inpUser.Text;
       conn.Params.Values['Password'] := inpPwd.Text;
-
-{$IFDEF DEBUG}
-      { TODO : Move this to checkbox on form }
-      conn.Params.Values['OSAuthent'] := 'Yes';
-{$ENDIF}
+      if chkboxOsAuth.IsChecked then
+        conn.Params.Values['OSAuthent'] := 'Yes';
       conn.Connected := True;
 
       Result := True;
@@ -150,8 +149,7 @@ procedure TfrmMain.FormCreate(Sender: TObject);
 begin
 {$IFDEF DEBUG}
   inpServer.Text := 'DESKTOP-5EFKG00\SQLEXPRESS';
-
-   btnConnectClick(nil);
+  chkboxOsAuth.IsChecked := True;
 {$ENDIF}
 end;
 
