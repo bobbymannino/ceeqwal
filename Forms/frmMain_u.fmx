@@ -37,7 +37,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 8
+    TabOrder = 9
     Text = 'Test Connection'
     TextSettings.Trimming = None
     OnClick = btnTestConnectionClick
@@ -49,7 +49,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 9
+    TabOrder = 10
     Text = 'Connect'
     TextSettings.Trimming = None
     OnClick = btnConnectClick
@@ -61,7 +61,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 11
+    TabOrder = 12
     Text = 'Close'
     TextSettings.Trimming = None
     OnClick = btnCloseClick
@@ -135,7 +135,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 10
+    TabOrder = 11
     Text = 'Upload Credentials'
     TextSettings.Trimming = None
     OnClick = btnUploadClick
@@ -154,7 +154,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 19.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 14
+    TabOrder = 8
     Text = 'OS Auth'
   end
 end
