@@ -2,30 +2,17 @@ object frmOptions: TfrmOptions
   Left = 0
   Top = 0
   Caption = 'Ceeqwal'
-  ClientHeight = 450
-  ClientWidth = 576
+  ClientHeight = 415
+  ClientWidth = 640
   Position = DesktopCenter
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object inpQry: TMemo
-    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-    DataDetectorTypes = []
-    Anchors = [akLeft, akTop, akRight]
-    Position.X = 8.000000000000000000
-    Position.Y = 8.000000000000000000
-    Size.Width = 560.000000000000000000
-    Size.Height = 369.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 0
-    Viewport.Width = 560.000000000000000000
-    Viewport.Height = 369.000000000000000000
-  end
   object btnRunQry: TButton
     Anchors = [akTop, akRight]
-    Position.X = 440.000000000000000000
+    Position.X = 504.000000000000000000
     Position.Y = 385.000000000000000000
     Size.Width = 128.000000000000000000
     Size.Height = 22.000000000000000000
@@ -45,5 +32,42 @@ object frmOptions: TfrmOptions
     Text = 'Close'
     TextSettings.Trimming = None
     OnClick = btnCloseClick
+  end
+  object grd: TGrid
+    Anchors = [akLeft, akTop, akRight]
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 324.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 308.000000000000000000
+    Size.Height = 369.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Viewport.Width = 304.000000000000000000
+    Viewport.Height = 344.000000000000000000
+  end
+  object inpQry: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 308.000000000000000000
+    Size.Height = 369.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 304.000000000000000000
+    Viewport.Height = 365.000000000000000000
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 5
+    object LinkControlToPropertySQLText: TLinkControlToProperty
+      Category = 'Quick Bindings'
+      Control = inpQry
+      Component = dmDb.qry
+      ComponentProperty = 'SQL.Text'
+    end
   end
 end
