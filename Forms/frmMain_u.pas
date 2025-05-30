@@ -29,11 +29,13 @@ type
     btnUpload: TButton;
     fileInpCredentials: TOpenDialog;
     chkboxOsAuth: TCheckBox;
+    inpPort: TEdit;
+    lblPort: TLabel;
     procedure btnTestConnectionClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnConnectClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure btnUploadClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     function CheckConnection: boolean;
     function ParseCredentials(const aField, aTxt: string): string;
@@ -111,6 +113,10 @@ begin
       if val <> EmptyStr then
         inpPwd.Text := val;
 
+      val := ParseCredentials('Port', fileContent.Text);
+      if val <> EmptyStr then
+        inpPort.Text := val;
+
     except
       on e: Exception do
       begin
@@ -129,18 +135,27 @@ begin
   with dmDb do
   begin
     try
+      conn.Connected := False;
       conn.Params.Clear;
       conn.Params.DriverID := 'MSSQL';
       conn.Params.Values['Server'] := inpServer.Text;
       conn.Params.Values['Database'] := inpDatabase.Text;
       conn.Params.Values['User_Name'] := inpUser.Text;
       conn.Params.Values['Password'] := inpPwd.Text;
+      conn.Params.Values['Port'] := inpPort.Text;
       if chkboxOsAuth.IsChecked then
         conn.Params.Values['OSAuthent'] := 'Yes';
       conn.Connected := True;
 
-      Result := True;
-    finally
+      if conn.Connected then
+        Result := True
+      else
+        raise Exception.Create('Error Message');
+    except
+      on e : Exception do
+      begin
+        conn.Connected := False;
+      end;
     end;
   end;
 end;
@@ -148,8 +163,11 @@ end;
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
 {$IFDEF DEBUG}
-  inpServer.Text := 'DESKTOP-5EFKG00\SQLEXPRESS';
-  chkboxOsAuth.IsChecked := True;
+     inpServer.Text := GetEnvironmentVariable('DB_HOST');
+     inpUser.Text := GetEnvironmentVariable('DB_USER');
+     inpPwd.Text := GetEnvironmentVariable('DB_PWD');
+     inpDatabase.Text := GetEnvironmentVariable('DB_DB');
+     inpPort.Text := GetEnvironmentVariable('DB_PORT');
 {$ENDIF}
 end;
 

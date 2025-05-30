@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'Ceeqwal'
-  ClientHeight = 453
+  ClientHeight = 513
   ClientWidth = 249
   Position = ScreenCenter
   FormFactor.Width = 320
@@ -33,11 +33,11 @@ object frmMain: TfrmMain
   object btnTestConnection: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 286.000000000000000000
+    Position.Y = 341.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 9
+    TabOrder = 11
     Text = 'Test Connection'
     TextSettings.Trimming = None
     OnClick = btnTestConnectionClick
@@ -45,11 +45,11 @@ object frmMain: TfrmMain
   object btnConnect: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 316.000000000000000000
+    Position.Y = 371.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 10
+    TabOrder = 12
     Text = 'Connect'
     TextSettings.Trimming = None
     OnClick = btnConnectClick
@@ -57,11 +57,11 @@ object frmMain: TfrmMain
   object btnClose: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 346.000000000000000000
+    Position.Y = 401.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 12
+    TabOrder = 14
     Text = 'Close'
     TextSettings.Trimming = None
     OnClick = btnCloseClick
@@ -131,11 +131,11 @@ object frmMain: TfrmMain
   object btnUpload: TButton
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 256.000000000000000000
+    Position.Y = 311.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 11
+    TabOrder = 13
     Text = 'Upload Credentials'
     TextSettings.Trimming = None
     OnClick = btnUploadClick
@@ -144,17 +144,38 @@ object frmMain: TfrmMain
     Filter = 'Text Files (*.txt)|*.txt|All Files (*.*)|*.*'
     Options = [ofHideReadOnly, ofFileMustExist, ofEnableSizing]
     Title = 'Select a Text File'
-    Left = 72
-    Top = 384
+    Left = 184
+    Top = 464
   end
   object chkboxOsAuth: TCheckBox
     Anchors = [akLeft, akTop, akRight]
     Position.X = 8.000000000000000000
-    Position.Y = 229.000000000000000000
+    Position.Y = 284.000000000000000000
     Size.Width = 233.000000000000000000
     Size.Height = 19.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 8
+    TabOrder = 10
     Text = 'OS Auth'
+  end
+  object inpPort: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akTop, akRight]
+    TabOrder = 9
+    Text = '1433'
+    Position.X = 8.000000000000000000
+    Position.Y = 254.000000000000000000
+    Size.Width = 233.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object lblPort: TLabel
+    Anchors = [akLeft, akTop, akRight]
+    Position.X = 8.000000000000000000
+    Position.Y = 229.000000000000000000
+    Size.Width = 233.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Port'
+    TabOrder = 8
   end
 end
