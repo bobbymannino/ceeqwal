@@ -37,7 +37,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 11
+    TabOrder = 12
     Text = 'Test Connection'
     TextSettings.Trimming = None
     OnClick = btnTestConnectionClick
@@ -49,7 +49,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 12
+    TabOrder = 13
     Text = 'Connect'
     TextSettings.Trimming = None
     OnClick = btnConnectClick
@@ -135,7 +135,7 @@ object frmMain: TfrmMain
     Size.Width = 233.000000000000000000
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 13
+    TabOrder = 11
     Text = 'Upload Credentials'
     TextSettings.Trimming = None
     OnClick = btnUploadClick
